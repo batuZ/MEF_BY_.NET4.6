@@ -227,7 +227,7 @@ public interface Person
   }
 ```
 
-#####  案例5 延迟加载
+#####  案例5 [延迟加载](https://www.cnblogs.com/TianFang/p/4069978.html)
 ```C#
 class Program2
 {
