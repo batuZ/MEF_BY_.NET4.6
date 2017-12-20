@@ -1,10 +1,10 @@
-﻿using System;
+﻿using MEF_Interface;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Main_Program
 {
@@ -13,16 +13,16 @@ namespace Main_Program
         static void Main(string[] args)
         {
             bool exit = false;
-            myCom cmd = new myCom();
+            myCmd cmd = new myCmd();
             Console.WriteLine("ProgramStart...");
             while (!exit)
             {
                 cmd.InitPlugin();
-                if (cmd.plugins.Count() == 0)
+                if (cmd.ReadPlugins.Count() == 0)
                     exit = true;
-                Console.WriteLine($"Found Plugins : {  cmd.plugins.Count()}");
-                List<MEF_Interface.WriteTool> tempList = new List<MEF_Interface.WriteTool>();
-                foreach (MEF_Interface.WriteTool item in cmd.plugins)
+                Console.WriteLine($"Found Plugins : {  cmd.ReadPlugins.Count()}");
+                List<ReadTool> tempList = new List<ReadTool>();
+                foreach (ReadTool item in cmd.ReadPlugins)
                 {
                     Console.Write($"{tempList.Count + 1},{item.toolName}  ");
                     tempList.Add(item);
@@ -40,13 +40,14 @@ namespace Main_Program
                         string str = Chr(p.KeyChar);
                         int i = Convert.ToInt32(str) - 1;
                         Console.WriteLine(tempList[i].toolName);
-                        tempList[i].Run();
+                        tempList[i].ReadRun();
                     }
                 }
                 catch
                 {
 
                 }
+                Console.WriteLine("");
             }
         }
         static string Chr(int asciiCode)
@@ -64,7 +65,7 @@ namespace Main_Program
             }
         }
     }
-    class myCom
+    class myCmd
     {
         #region MEF - MainPart
 
@@ -76,7 +77,8 @@ namespace Main_Program
 
         //组装好的功能模块入口集合，遍历成员，通过自定义的标识调用对应功能
         //IPlugin 公开接口
-        public IEnumerable<MEF_Interface.WriteTool> plugins;
+        public IEnumerable<ReadTool> ReadPlugins;
+        public IEnumerable<WriteTool> WritePlugins;
 
         //设置功能模块存放目录
         private string pluginPath = AppDomain.CurrentDomain.BaseDirectory + "plugin\\";
