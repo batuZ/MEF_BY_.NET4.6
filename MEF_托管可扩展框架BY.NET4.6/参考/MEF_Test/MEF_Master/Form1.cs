@@ -70,12 +70,13 @@ namespace MEF_Master
                     subItem.Click += createIt(plugin);
                     item.DropDownItems.Add(subItem);
                 }
-                //foreach (IPlugin plugin in LazyPlugins)
-                //{
-                //    ToolStripMenuItem subItem = new ToolStripMenuItem(plugin.text);
-                //    subItem.Click += (s, arg) => { plugin.init(); };
-                //    item.DropDownItems.Add(subItem);
-                //}
+
+                foreach (IPlugin plugin in LazyPlugins)
+                {
+                    ToolStripMenuItem subItem = new ToolStripMenuItem(plugin.text);
+                    subItem.Click += (s, arg) => { plugin.init(); };
+                    item.DropDownItems.Add(subItem);
+                }
             }
         }
         EventHandler createIt(Lazy<IPlugin> plugin)

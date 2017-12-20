@@ -37,7 +37,6 @@ namespace MEF_Master
           oProgram.MyComposePart();
           var strRes = oProgram.oPerson.SayHello("李磊");
           Console.WriteLine(strRes);
-
           Console.Read();
       }
 
