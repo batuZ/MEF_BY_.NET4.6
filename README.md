@@ -1,4 +1,4 @@
-# MEF_BY_.NET4.6
+# MEF BY .NET4.6 
 
 
 ###	[官方介绍](https://msdn.microsoft.com/zh-cn/library/dd460648(v=vs.110).aspx)
