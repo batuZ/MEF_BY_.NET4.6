@@ -34,7 +34,7 @@ namespace 字符串匹配多个同名同类型组件
         #region <---------------------- 宿主获取组件
         // 通过约定名称获取组件
         [ImportMany("chinese_hello")]
-        public IEnumerable<Person> y;
+        public Person[] y;
         void cPart()
         {
             // 程序（项目）内查找组件
