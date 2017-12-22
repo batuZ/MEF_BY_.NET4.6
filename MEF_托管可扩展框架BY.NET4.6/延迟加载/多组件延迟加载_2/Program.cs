@@ -60,7 +60,7 @@ namespace 多组件延迟加载_2
     }
 
     [MetadataAttribute]
-    [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
+    //[AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
     class Infos : Attribute, Person_info    //  <------------------------------- 用一个新类继承信息接口，封装一下
     {
         public int Index
