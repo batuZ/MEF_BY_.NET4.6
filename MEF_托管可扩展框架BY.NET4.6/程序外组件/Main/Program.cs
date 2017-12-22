@@ -26,8 +26,8 @@ namespace Main
 
         public void InitPlugin()
         {
-            DirectoryCatalog Dir = new DirectoryCatalog(
-                @"C:\code\MAX\MEF_BY_.NET4.6\MEF_托管可扩展框架BY.NET4.6\程序外组件\MEF_Plugin\bin\Debug");
+            DirectoryCatalog Dir = new DirectoryCatalog( @"C:\code\MAX\MEF_BY_.NET4.6\MEF_托管可扩展框架BY.NET4.6\程序外组件\MEF_Plugin\bin\Debug","*.dll");
+           // DirectoryCatalog Dir = new DirectoryCatalog(@"C:\code\MAX\MEF_BY_.NET4.6\MEF_托管可扩展框架BY.NET4.6\程序外组件\MEF_Plugin\bin\Debug", "*.exe");
             AggregateCatalog List = new AggregateCatalog();
             List.Catalogs.Add(Dir);
             CompositionContainer ner = new CompositionContainer(List);

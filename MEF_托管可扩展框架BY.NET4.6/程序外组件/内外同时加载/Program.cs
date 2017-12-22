@@ -29,7 +29,7 @@ namespace 内外同时加载
             AggregateCatalog catalog = new AggregateCatalog();
             //获取外部零件
             DirectoryCatalog Dll_List = new DirectoryCatalog(@"D:\MyCode\MEF_BY_.NET4.6\MEF_托管可扩展框架BY.NET4.6\程序外组件\MEF_Plugin\bin\Debug");
-            //获取程序内零件
+            //获取程序内,标记的可导出的零件
             AssemblyCatalog Ass_List = new AssemblyCatalog(Assembly.GetExecutingAssembly());
             //分别塞入集合
             catalog.Catalogs.Add(Dll_List);
